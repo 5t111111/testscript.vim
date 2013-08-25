@@ -24,6 +24,9 @@ class MyClass(object):
     content = None
 
     def __init__(self, line):
+        self.parse(line)
+
+    def parse(self, line):
         items = line.split(None, 3)
         self.name = items[0]
         self.linum = items[1]
@@ -34,7 +37,6 @@ plugin_dir = vim.eval('g:path_to_this')
 site.addsitedir(os.path.join(plugin_dir, 'lib'))
 
 os.chdir(r'/Users/mubae/Dropbox/Dev/C')
-#os.system('cd /Users/mubae/Dropbox/Dev/C')
 proc = subprocess.Popen(['/usr/local/bin/global', '-f', 'sample.c'], stdout=subprocess.PIPE)
 
 str_list = []
